@@ -20,11 +20,6 @@ class Todo extends Component {
         })
     }
 
-    addTodo = () => {
-        // console.log("Hello");
-
-    }
-
     handleInputChange = (event) => {
         const { name, value } = event.target;
         this.setState({
@@ -47,7 +42,15 @@ class Todo extends Component {
 
     handleDelete = event => {
         event.preventDefault();
-        console.log(event.target);
+        console.log(event.target.id);
+        let todosInProgress = this.state.list.filter(item => {
+            return item!=event.target.id
+        })
+        localStorage.setItem("todo", JSON.stringify(todosInProgress));
+
+        this.setState({
+            list: todosInProgress
+        })
     }
 
     render() {
@@ -57,11 +60,12 @@ class Todo extends Component {
                 <div className="col-md-8">
                     <div className="card" style={{ width: "250px", height: "350px" }}>
                         <input type="text" name="todoItem" value={this.state.todoItem} onChange={this.handleInputChange}></input>
-                        <button type="submit" onClick={this.handleSubmit} id="one">Add</button>
+                        <button type="submit" onClick={this.handleSubmit}>Add</button>
                     </div>
                     {this.state.list.map(item => (
                         <Display
                             key={item}
+                            id={item}
                             item={item}
                             handleDelete={this.handleDelete}
                         />
