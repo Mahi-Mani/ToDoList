@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Display from "../Display";
+import DisplayDate from "../DisplayDate";
 const FA = require("react-fontawesome");
 
 class Todo extends Component {
@@ -77,11 +78,11 @@ class Todo extends Component {
                 <div className="col-md-2"></div>
                 <div className="col-md-8">
                     <br></br><br></br><br></br><br></br><br></br>
-                    <div className="card shadow-lg p-3 mb-5 bg-white rounded col-lg-4 d-flex align-items-stretch" style={{ width: "350px" }}>
+                    <div className="card shadow-lg p-3 mb-5 bg-white rounded col-lg-8 d-flex align-items-stretch" style={{ width: "500px" }}>
+                        <div class="card-title text-center">
+                            <DisplayDate />
+                        </div>
                         <input className="shadow-lg p-3 mb-5 bg-white rounded" type="text" name="todoItem" value={this.state.todoItem} onChange={this.handleInputChange}></input>
-                        <button type="submit" onClick={this.handleSubmit} className="submit" style={Style.submit}>
-                            <FA name="plus" />
-                        </button>
                         {this.state.list.map(item => (
                             <Display
                                 key={item}
@@ -90,8 +91,14 @@ class Todo extends Component {
                                 handleDelete={this.handleDelete}
                             />
                         ))}
+                        <div class="card-footer text-center">
+                            <button type="submit" onClick={this.handleSubmit} className="submit" style={Style.submit}>
+                                <FA name="plus" />
+                            </button>
+                        </div>
                     </div>
                 </div>
+
                 <div className="col-md-2"></div>
             </div>
         )
