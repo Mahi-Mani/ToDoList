@@ -3,31 +3,17 @@ const FA = require("react-fontawesome");
 
 function Display(props) {
     console.log(props);
-    // const Style = {
-    //     check: {
-    //         "display": "block",
-    //         "width": "25px",
-    //         "height": "50px",
-    //         "line-height": "80px",
-    //         "border": "2px solid #f5f5f5",
-    //         "border-radius": "50%",
-    //         "color": "#f5f5f5",
-    //         "text-align": "center",
-    //         "text-decoration": "none",
-    //         "background": "#555777",
-    //         "box-shadow": "0 0 3px gray",
-    //         "font-size": "20px",
-    //         "font-weight": "bold"
-    //     }
-    // }
+    const backgroundColor = ["69A0FF", "#d64161", "#D469FF", "#FFEE75", "#FFEFB5", "#463B80"];
+    var randomColor = Math.floor(Math.random() * backgroundColor.length);
+    const color = backgroundColor[randomColor];
+
     return (
-        <div style={{"display": "block"}}>
-            <button type="submit" onClick={props.handleDelete} id={props.id}>
-                {props.item} <FA name="check" className="check" />
-            </button>
+        <div className="shadow-lg p-3 mb-5 rounded" style={{backgroundColor: color}}>
+                <h1 onClick={props.handleDelete} id={props.id}>{props.item} <FA name="check" className="check" /></h1>
         </div>
     )
-
 }
-
+{/* <button type="submit" onClick={props.handleDelete} id={props.id}>
+</button> */}
 export default Display;
+// "backgroundColor": "{backgroundColor[randomColor]}"
