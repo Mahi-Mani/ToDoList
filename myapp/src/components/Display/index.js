@@ -9,11 +9,9 @@ function Display(props) {
 
     return (
         <div className="shadow-lg p-3 mb-5 rounded" style={{backgroundColor: color}}>
-                <h1 onClick={props.handleDelete} id={props.id}>{props.item} <FA name="check" className="check" /></h1>
+                <h1>{props.item} <FA name="check" className="check" onClick={props.handleDelete} id={props.id} /></h1>
         </div>
     )
 }
-{/* <button type="submit" onClick={props.handleDelete} id={props.id}>
-</button> */}
+
 export default Display;
-// "backgroundColor": "{backgroundColor[randomColor]}"
