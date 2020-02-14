@@ -58,7 +58,6 @@ class Todo extends Component {
     render() {
         const Style = {
             submit: {
-                "display": "block",
                 "width": "80px",
                 "height": "80px",
                 "line-height": "80px",
@@ -78,7 +77,7 @@ class Todo extends Component {
                 <div className="col-md-2"></div>
                 <div className="col-md-8">
                     <br></br><br></br><br></br><br></br><br></br>
-                    <div className="card shadow-lg p-3 mb-5 bg-white rounded col-lg-8 d-flex align-items-stretch" style={{ width: "500px" }}>
+                    <div className="card shadow-lg p-3 mb-5 bg-info rounded col-lg-8 d-flex align-items-stretch" style={{ width: "500px" }}>
                         <div class="card-title text-center">
                             <DisplayDate />
                         </div>
@@ -91,8 +90,8 @@ class Todo extends Component {
                                 handleDelete={this.handleDelete}
                             />
                         ))}
-                        <div class="card-footer text-center">
-                            <button type="submit" onClick={this.handleSubmit} className="submit" style={Style.submit}>
+                        <div className="text-center">
+                            <button className="text-center" type="submit" onClick={this.handleSubmit} className="submit" style={Style.submit}>
                                 <FA name="plus" />
                             </button>
                         </div>

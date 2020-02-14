@@ -10,7 +10,7 @@ class DisplayDate extends Component {
     render() { 
         const Style={
             header: {
-                backgroundColor: "#618685"
+                backgroundColor: "black"
             }
         }
     return(
